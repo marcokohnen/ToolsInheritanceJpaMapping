@@ -34,6 +34,7 @@ public class ToolEndPoint {
 
     @RequestMapping(value = "hammers/{name}", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Hamer>> findHamerByNameLike(@PathVariable String name) {
+        name =  "%" + name + "%";
         return new ResponseEntity<>(toolService.findHamerByNameLike(name), HttpStatus.OK);
     }
 
