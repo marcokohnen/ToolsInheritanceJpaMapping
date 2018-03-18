@@ -17,4 +17,6 @@ public interface ToolService {
     Iterable<Hamer> findHammerByElectric(boolean electric);
 
     Iterable<DrillingMachine> findDrillingMachineByElectric(boolean electric);
+
+    Iterable<Hamer> findHamerByWeightGreaterThan(double weight);
 }

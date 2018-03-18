@@ -53,4 +53,9 @@ public class ToolEndPoint {
     public ResponseEntity<Iterable<DrillingMachine>> findDrillingByElectric(@PathVariable boolean electric) {
         return  new ResponseEntity<>(toolService.findDrillingMachineByElectric(electric), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "hammersweight/{weight}", method = RequestMethod.GET)
+    public ResponseEntity<Iterable<Hamer>> findHamerByWeightGreaterThan(@PathVariable double weight) {
+        return new ResponseEntity<>(toolService.findHamerByWeightGreaterThan(weight), HttpStatus.OK);
+    }
 }

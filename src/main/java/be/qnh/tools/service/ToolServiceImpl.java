@@ -32,14 +32,17 @@ public class ToolServiceImpl implements ToolService {
         hamer1.setName("Hammer1");
         hamer1.setFunction("Hammering");
         hamer1.setElectric(false);
+        hamer1.setWeight(2.5);
         Hamer hamer2 = new Hamer();
         hamer2.setName("Hammer2");
         hamer2.setFunction("Hammering");
         hamer2.setElectric(true);
+        hamer2.setWeight(5.0);
         Hamer hamer3 = new Hamer();
         hamer3.setName("Hammer3");
         hamer3.setFunction("Hammering");
         hamer3.setElectric(false);
+        hamer3.setWeight(11.8);
         hammerRepository.saveAll(Arrays.asList(hamer1, hamer2, hamer3));
 
         DrillingMachine drillingMachine1 = new DrillingMachine();
@@ -87,5 +90,10 @@ public class ToolServiceImpl implements ToolService {
     @Override
     public Iterable<DrillingMachine> findDrillingMachineByElectric(boolean electric) {
         return drillingMachineRepository.findByElectric(electric);
+    }
+
+    @Override
+    public Iterable<Hamer> findHamerByWeightGreaterThan(double weight) {
+        return hammerRepository.findByWeightGreaterThan(weight);
     }
 }
