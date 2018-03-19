@@ -2,17 +2,13 @@ package be.qnh.tools.service;
 
 import be.qnh.tools.domain.DrillingMachine;
 import be.qnh.tools.domain.Hamer;
-import be.qnh.tools.domain.Tool;
 import be.qnh.tools.repository.DrillingMachineRepository;
 import be.qnh.tools.repository.HammerRepository;
-import be.qnh.tools.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
-
-import static javafx.scene.input.KeyCode.T;
 
 @Service
 public class ToolServiceImpl implements ToolService {
