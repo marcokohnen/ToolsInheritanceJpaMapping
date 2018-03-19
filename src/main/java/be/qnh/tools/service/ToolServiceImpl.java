@@ -2,6 +2,7 @@ package be.qnh.tools.service;
 
 import be.qnh.tools.domain.DrillingMachine;
 import be.qnh.tools.domain.Hamer;
+import be.qnh.tools.repository.AbstractToolRepository;
 import be.qnh.tools.repository.DrillingMachineRepository;
 import be.qnh.tools.repository.HammerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,32 @@ import java.util.Arrays;
 @Service
 public class ToolServiceImpl implements ToolService {
 
-    private final HammerRepository hammerRepository;
-    private final DrillingMachineRepository drillingMachineRepository;
+
+// ********************************************************************************************************************
+// zie commentaar in de klasse Tool voor de declaraties van de repositories per subklasse Hamer en DrillingMachine
+//
+// in de klasse Tool : @MappedSuperclass
+//
+//    private final HammerRepository hammerRepository;
+//    private final DrillingMachineRepository drillingMachineRepository;
+//
+//    @Autowired
+//    public ToolServiceImpl(HammerRepository hammerRepository, DrillingMachineRepository drillingMachineRepository) {
+//        this.hammerRepository = hammerRepository;
+//        this.drillingMachineRepository = drillingMachineRepository;
+//    }
+
+// in de klasse Tool : @Entity
+    private final AbstractToolRepository<Hamer> hammerRepository;
+    private final AbstractToolRepository<DrillingMachine> drillingMachineRepository;
 
     @Autowired
-    public ToolServiceImpl(HammerRepository hammerRepository, DrillingMachineRepository drillingMachineRepository) {
+    public ToolServiceImpl(AbstractToolRepository<Hamer> hammerRepository, AbstractToolRepository<DrillingMachine> drillingMachineRepository) {
         this.hammerRepository = hammerRepository;
         this.drillingMachineRepository = drillingMachineRepository;
     }
+
+// ********************************************************************************************************************
 
     @PostConstruct
     private void init() {

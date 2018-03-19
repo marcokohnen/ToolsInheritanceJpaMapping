@@ -1,12 +1,21 @@
 package be.qnh.tools.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-@MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
+//@MappedSuperclass : zorgt ervoor dat deze abstracte klasse geen entity wordt en er per subklasse een aparte repository
+//                    moet worden gemaakt die extenden van de AbstracteToolRepository<T extends Tool>
+
+//@Entity : zorgt ervoor dat deze abstracte klasse een entity wordt en er per subklasse geen aparte repository
+//          moet worden gemaakt die extenden van de AbstracteToolRepository maar alleen de
+//          AbstracteToolRepository<T extends Tool> nodig is
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Tool extends AbstractEntity implements Serializable {
 
     private String name;

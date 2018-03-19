@@ -13,4 +13,5 @@ public interface AbstractToolRepository<T extends Tool> extends JpaRepository<T,
     Iterable<T> findByElectric(boolean electric);
 
     Iterable<T> findByWeightGreaterThan(double weight);
+
 }
