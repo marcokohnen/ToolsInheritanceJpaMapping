@@ -7,14 +7,16 @@ import be.qnh.tools.repository.DrillingMachineRepository;
 import be.qnh.tools.repository.HammerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
 @Service
+@Transactional
 public class ToolServiceImpl implements ToolService {
 
-
+/**
 // ********************************************************************************************************************
 // zie commentaar in de klasse Tool voor de declaraties van de repositories per subklasse Hamer en DrillingMachine
 //
@@ -30,6 +32,8 @@ public class ToolServiceImpl implements ToolService {
 //    }
 
 // in de klasse Tool : @Entity
+*/
+
     private final AbstractToolRepository<Hamer> hammerRepository;
     private final AbstractToolRepository<DrillingMachine> drillingMachineRepository;
 
